@@ -1,4 +1,4 @@
-import { ArrowRight, Code2, Palette, Zap } from 'lucide-react';
+import {Code2, Palette, Zap } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -39,13 +39,13 @@ const Hero = () => {
           </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <button className="inline-flex items-center px-6 py-3 border-2 border-red-500 text-white rounded-full hover:bg-red-500/10 transition-colors text-lg font-medium backdrop-blur-sm">
-              IT Consulting
+              IT Solutions
             </button>
             <button className="inline-flex items-center px-6 py-3 border-2 border-green-500 text-white rounded-full hover:bg-green-500/10 transition-colors text-lg font-medium backdrop-blur-sm">
               AI Consulting
             </button>
             <button className="inline-flex items-center px-6 py-3 border-2 border-blue-500 text-white rounded-full hover:bg-blue-500/10 transition-colors text-lg font-medium backdrop-blur-sm">
-              Web & Mobile Applications
+              Web & Mobile Softwares
             </button>
             <button className="inline-flex items-center px-6 py-3 border-2 border-yellow-500 text-white rounded-full hover:bg-yellow-500/10 transition-colors text-lg font-medium backdrop-blur-sm">
               E-commerce Solutions

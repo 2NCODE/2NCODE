@@ -17,12 +17,12 @@ const Features = () => {
         {/* Text Content */}
         <div className="md:w-1/2">
           <h2 className="text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-            Upgrade your digital experience with{" "}
+           From Visions to Execution with{" "}
             <span className="text-indigo-600">2NCODE</span>.
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-          2NCODE is a startup specializing in digital transformation, 
-          focused on developing IT solutions and optimizing business information systems.
+          2NCODE is a Software development startup specializing in digital transformation, 
+          focused on building Web & Mobile softwares and optimizing business information systems.
           We help companies enhance their digital ecosystem and improve operational efficiency. 🚀
           </p>
 
@@ -57,15 +57,23 @@ const Features = () => {
               </p>
             </div>
           </div>
-
-          <div className="mt-8">
-            <a
-              href="#features"
-              className="inline-block px-8 py-4 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg text-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
-            >
-              Get Started with 2NCODE
-            </a>
-          </div>
+            <div className="mt-8 flex items-center gap-2">
+              <a
+                href="#contact"
+                className="inline-flex items-center px-8 py-4 bg-indigo-600 text-white rounded-lg text-lg font-semibold shadow-lg transition-transform transform hover:scale-105 group"
+              >
+                <span>Get Started with Us</span>
+                <svg
+                  className="ml-2 h-6 w-6 text-white group-hover:translate-y-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 17l4-4m-4 4l-4-4m4 4V3" />
+                </svg>
+              </a>
+            </div>
         </div>
 
         {/* Image and Quote */}

@@ -9,11 +9,52 @@ const Contact = () => {
     message: ''
   });
 
+  // Initialize EmailJS
+  React.useEffect(() => {
+    // @ts-ignore
+    if (window.emailjs) {
+      // @ts-expect-error
+      window.emailjs.init({
+        publicKey: "dGpRJMeTZGiU2OOx5",
+      });
+    } else {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+      script.onload = () => {
+        // @ts-ignore
+        window.emailjs.init({
+          publicKey: "dGpRJMeTZGiU2OOx5",
+        });
+      };
+      document.body.appendChild(script);
+    }
+  }, []);
+  const SendMail = async () => {
+    // @ts-expect-error
+    if (!window.emailjs) {
+      alert("Email service not loaded yet. Please try again in a moment.");
+      return;
+    }
+    try {
+      // @ts-expect-error
+      await window.emailjs.send("service_pyk0vt1", "template_uidomc9", {
+        from_name: formData.name,
+        email_id: formData.email,
+        subject_id: formData.subject,
+        message_id: formData.message,
+      });
+      alert("Message sent successfully!");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      alert("Failed to send message. Please try again later.");
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
   };
-
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +75,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="fullname"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   placeholder="John Doe"
                   value={formData.name}
@@ -48,7 +89,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="email_id"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   placeholder="john@example.com"
                   value={formData.email}
@@ -62,7 +103,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  id="subject"
+                  id="subject_id"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   placeholder="Project Inquiry"
                   value={formData.subject}
@@ -75,7 +116,7 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
-                  id="message"
+                  id="message_id"
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   placeholder="Tell us about your project..."
@@ -87,6 +128,7 @@ const Contact = () => {
               <button
                 type="submit"
                 className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center"
+                onClick={() => SendMail()}
               >
                 Send Message
                 <Send className="ml-2 h-5 w-5" />
@@ -103,7 +145,7 @@ const Contact = () => {
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Email</h4>
                     <p className="text-gray-600">contact@2ncode.com</p>
-                    <p className="text-gray-600">dev@2ncode.com</p>
+                    {/* <p className="text-gray-600">dev@2ncode.com</p> */}
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -111,14 +153,14 @@ const Contact = () => {
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Phone</h4>
                     <p className="text-gray-600">+212 06 25 88 93 97</p>
-                    <p className="text-gray-600">+212 06 07 07 59 05</p>
+                    <p className="text-gray-600">+212 06 84 19 00 01</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-indigo-600 mt-1" />
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Office</h4>
-                    <p className="text-gray-600">Safi, Marrakech</p>
+                    <p className="text-gray-600">Bureau N°06 1ére étage immeuble Al Salaem avenue John Kennedy, Safi</p>
                   </div>
                 </div>
               </div>
