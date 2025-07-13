@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <img src="/public/assets/2ncode-favicon.png" alt="2NCODE Logo" className="h-8 w-8" />
+              <img src="/assets/2ncode-favicon.png" alt="2NCODE Logo" className="h-8 w-8" />
               <span className="ml-2 text-2xl font-bold text-white">2NCODE</span>
             </div>
             <p className="text-gray-400 italic">
@@ -87,7 +87,7 @@ const Footer = () => {
                   </li>
                   <li className="flex items-center">
                   <MapPin className="h-5 w-5 mr-2 text-indigo-400" />
-                  <a href="https://maps.google.com/?q=32.2903633117676,-9.23853302001953" target="_blank">
+                  <a href="https://maps.google.com/?q=32.2903633117676,-9.23853302001953" target="_blank" className="hover:text-indigo-400">
                      <span>Marrakech-Safi, Safi</span>
                   </a>
                   </li>
@@ -125,23 +125,24 @@ const Footer = () => {
           <div className="flex justify-center mt-2">
         <div className="flex justify-end mt-2">
             <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="p-2 rounded-full bg-indigo-500 text-white hover:bg-indigo-400 focus:outline-none fixed bottom-8 right-8"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="p-2 rounded-full bg-indigo-500 text-white hover:bg-indigo-400 focus:outline-none fixed bottom-20 right-8 shadow-lg transition-transform transform hover:scale-110"
+              aria-label="Scroll to top"
             >
-            <svg
+              <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-            >
+              >
               <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
               />
-            </svg>
+              </svg>
             </button>
         </div>
             </div>

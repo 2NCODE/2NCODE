@@ -20,10 +20,10 @@ const Features = () => {
            From Visions to Execution with{" "}
             <span className="text-indigo-600">2NCODE</span>.
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
-          2NCODE is a Software development startup specializing in digital transformation, 
-          focused on building Web & Mobile softwares and optimizing business information systems.
-          We help companies enhance their digital ecosystem and improve operational efficiency. 🚀
+          <p className="text-lg text-gray-600 mb-8 text-justify">
+            2NCODE is a Software development startup specializing in digital transformation, 
+            focused on building Web & Mobile softwares and optimizing business information systems.
+            We help companies enhance their digital ecosystem and improve operational efficiency. 🚀
           </p>
 
           <div className="space-y-6">

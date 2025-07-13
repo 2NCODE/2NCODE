@@ -57,33 +57,50 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <img src="/assets/Logo.png" alt="Logo" className="h-10 w-32" />
-            </div>
-          
-            <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center">
+            <img src="/assets/Logo.png" alt="Logo" className="h-10 w-32" />
+          </div>
+
+          <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-gray-600 hover:text-indigo-600">Features</a>
             <a href="#process" className="text-gray-600 hover:text-indigo-600">Process</a>
             <a href="#testimonials" className="text-gray-600 hover:text-indigo-600">Testimonials</a>
             <a href="#contact" className="text-gray-600 hover:text-indigo-600">Contact</a>
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
+            <button
+              onClick={() => setIsOpen(!isOpen)}
               className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors shadow-lg">
               Get Started
             </button>
-            </div>
-            {isOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                <div className="bg-white p-8 rounded-lg shadow-2xl max-w-lg w-full">
-                  <h2 className="text-2xl mb-6 text-gray-800 font-semibold">Get started with us</h2>
-                  <form
-                  onSubmit={(e) => {
+          </div>
+          {isOpen && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white p-8 rounded-lg shadow-2xl max-w-lg w-full">
+                <h2 className="text-2xl mb-6 text-gray-800 font-semibold">Get started with us</h2>
+                <form
+                  onSubmit={async (e) => {
                     e.preventDefault();
-                    alert('Message sent successfully');
+                    // Simple validation
+                    if (!formData.name.trim()) {
+                      alert("Please enter your full name.");
+                      return;
+                    }
+                    if (!formData.email.trim() || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) {
+                      alert("Please enter a valid email address.");
+                      return;
+                    }
+                    if (!formData.subject.trim()) {
+                      alert("Please enter a subject.");
+                      return;
+                    }
+                    if (!formData.message.trim()) {
+                      alert("Please enter your message.");
+                      return;
+                    }
+                    await SendMail();
                     setIsOpen(false);
                   }}
-                  >
-                    <div className="mb-4">
+                >
+                  <div className="mb-4">
                     <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">Full Name</label>
                     <input
                       id="fullName"
@@ -94,8 +111,8 @@ const Navbar = () => {
                       value={formData.name}
                       onChange={e => setFormData({ ...formData, name: e.target.value })}
                     />
-                    </div>
-                    <div className="mb-4">
+                  </div>
+                  <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
                     <input
                       id="email_id"
@@ -106,8 +123,8 @@ const Navbar = () => {
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                     />
-                    </div>
-                    <div className="mb-4">
+                  </div>
+                  <div className="mb-4">
                     <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Subject</label>
                     <input
                       id="subject_id"
@@ -118,8 +135,8 @@ const Navbar = () => {
                       value={formData.subject}
                       onChange={e => setFormData({ ...formData, subject: e.target.value })}
                     />
-                    </div>
-                    <div className="mb-4">
+                  </div>
+                  <div className="mb-4">
                     <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
                     <textarea
                       id="message_id"
@@ -129,8 +146,8 @@ const Navbar = () => {
                       value={formData.message}
                       onChange={e => setFormData({ ...formData, message: e.target.value })}
                     ></textarea>
-                    </div>
-                    <div className="flex justify-end">
+                  </div>
+                  <div className="flex justify-end">
                     <button
                       type="button"
                       onClick={() => setIsOpen(false)}
@@ -140,16 +157,15 @@ const Navbar = () => {
                     </button>
                     <button
                       type="submit"
-                      onClick={() => SendMail()}
                       className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors shadow-md"
                     >
                       Send
                     </button>
-                    </div>
-                  </form>
-                </div>
-                </div>
-            )}
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
 
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600">

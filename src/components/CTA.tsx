@@ -6,17 +6,17 @@ const projects = [
   {
     title: 'Project 1',
     description: 'An advanced dashboard for restaurants to manage orders, track revenue, and streamline operations',
-    imageUrl: '/public/assets/Photo1.png',
+    imageUrl: '/assets/Photo1.png',
   },
   {
     title: 'Project 2',
     description: 'A user-friendly mobile app for discovering local dishes, placing orders, and tracking deliveries in real time.',
-    imageUrl: '/public/assets/Photo2.png',
+    imageUrl: '/assets/photo2.png',
   },
   {
     title: 'Project 3',
     description: 'A web platform for doctors to schedule, manage, and track patient appointments efficiently.',
-    imageUrl: '/public/assets/Photo3.png',
+    imageUrl: '/assets/photo3.png',
   },
 ];
 
