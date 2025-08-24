@@ -69,13 +69,13 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors shadow-lg">
-              Get Started
+              Demandez un Devis
             </button>
           </div>
           {isOpen && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-8 rounded-lg shadow-2xl max-w-lg w-full">
-                <h2 className="text-2xl mb-6 text-gray-800 font-semibold">Get started with us</h2>
+                <h2 className="text-2xl mb-6 text-gray-800 font-semibold">Demandez un Devis</h2>
                 <form
                   onSubmit={async (e) => {
                     e.preventDefault();
@@ -125,11 +125,11 @@ const Navbar = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Subject</label>
+                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Name of your Company</label>
                     <input
                       id="subject_id"
                       type="text"
-                      placeholder="Inquiry about services"
+                      placeholder="2NCODE"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
                       required
                       value={formData.subject}
@@ -137,10 +137,10 @@ const Navbar = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
+                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Descripbe your need</label>
                     <textarea
                       id="message_id"
-                      placeholder="I would like to know more about your services..."
+                      placeholder="I would like to create a web application for my business..."
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
                       required
                       value={formData.message}
