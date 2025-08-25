@@ -137,7 +137,7 @@ const Navbar = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Descripbe your need</label>
+                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Describe your project</label>
                     <textarea
                       id="message_id"
                       placeholder="I would like to create a web application for my business..."
